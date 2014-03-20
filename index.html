@@ -28,9 +28,9 @@
 <body>
 
 
-<div class="main">
+<div ng-controller="PageCtrl" class="main">
   <div class="top-container clearfix">
-    <div class="map-container">
+    <div ng-controller="MapCtrl" class="map-container">
       <leaflet center="centerPoint" markers="realEstateMarkers" class="map"></leaflet>
     </div>
 
