@@ -22,6 +22,9 @@ MapSearchApp.services.factory("mapSrv", [
       },
       center: function() {
         return DEFAULT_CENTER;
+      },
+      highlightMarker: function(object) {
+        log("TODO mapSrv#highlightMarker", object);
       }
     };
   }
