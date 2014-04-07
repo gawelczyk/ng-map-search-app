@@ -6,7 +6,9 @@ MapSearchApp.controllers.controller("PageCtrl", [
 
     realEstatesRepository.getAll(function(realEstates) {
       pubSubSrv.publish("realEstates:load", [realEstates]);
-    });
+    }, function(error) {
+      throw error;
+    }/*, true*/);
 
   }
 ]);

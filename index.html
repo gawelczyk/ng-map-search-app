@@ -14,6 +14,7 @@
   <!-- app scripts -->
   <script src="js/utils.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/filters/realEstateType.js"></script>
   <script src="js/services/pubSubSrv.js"></script>
   <script src="js/services/mixinSrv.js"></script>
   <script src="js/services/mapSrv.js"></script>
@@ -37,8 +38,10 @@
     <div class="details-container">
       <div class="details">
         <p>Street: TODO</p>
-        <p>Latitude: TODO</p>
-        <p>Longitude: TODO</p>
+        <p>Latitude: TODO (round 4)</p>
+        <p>Longitude: TODO (round 4)</p>
+        <p>Price: TODO (currency PLN)</p>
+        <p>Type: TODO (full type name)</p>
       </div>
     </div>
   </div>
@@ -46,18 +49,28 @@
   <div class="list-container">
     <div class="list">
       <table>
-        <thead>
+        <thead class="list-header">
         <tr>
-          <td>Street</td>
-          <td>Longitude</td>
-          <td>Latitude</td>
+          <td>
+            <a>Street</a>
+          </td>
+          <td>
+            <a>Longitude</a>
+          </td>
+          <td>
+            <a>Latitude</a>
+          </td>
+          <td>
+            <a>Type code</a>
+          </td>
         </tr>
         </thead>
         <tbody class="items-container">
         <tr class="list-item">
           <td>street TODO</td>
-          <td>lng TODO</td>
-          <td>lat TODO</td>
+          <td>lng TODO (round 2)</td>
+          <td>lat TODO (round 2)</td>
+          <td>type code TODO</td>
         </tr>
         </tbody>
       </table>

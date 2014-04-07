@@ -77,6 +77,15 @@ body {
   cursor: pointer;
 }
 
+.list .list-header a {
+  color: #3388ff;
+  cursor: pointer;
+}
+
+.list .list-header .selected {
+  font-weight: bold;
+}
+
 .clearfix:after {
   content: ".";
   display: block;
