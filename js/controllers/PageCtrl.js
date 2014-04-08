@@ -10,5 +10,7 @@ MapSearchApp.controllers.controller("PageCtrl", [
       throw error;
     }/*, true*/);
 
+    //TODO: toggle language
+
   }
 ]);
