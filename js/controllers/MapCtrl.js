@@ -9,7 +9,6 @@ MapSearchApp.controllers.controller("MapCtrl", [
 
     $scope.$on('leafletDirectiveMarker.click', function(event, data) {
       var selectedRealEstate = mapSrv.findObject(data["markerName"]);
-      mapSrv.highlightMarker(selectedRealEstate);
 
       //TODO
     })
