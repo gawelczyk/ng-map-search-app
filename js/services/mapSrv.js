@@ -22,6 +22,7 @@ MapSearchApp.services.factory("mapSrv", [
 
     return {
       toMarkers: function(objects) {
+        markers = {};
         _(objects).each(function(obj, i) {
           var markerName = "marker_" + i;
           var marker = {
