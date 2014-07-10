@@ -8,7 +8,7 @@ MapSearchApp.controllers.controller("PageCtrl", [
       pubSubSrv.publish("realEstates:load", [realEstates]);
     }, function(error) {
       throw error;
-    }/*, true*/);
+    });
 
     //TODO: toggle language
 

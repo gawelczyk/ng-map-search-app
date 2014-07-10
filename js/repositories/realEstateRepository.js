@@ -19,12 +19,15 @@ MapSearchApp.repositories.factory("realEstatesRepository", [
       });
     }
 
-    function getAll(onFulfilled, onRejected, loadFromServer) {
-      if (loadFromServer) {
-        // TODO: ajax request url: "server/realEstates.json"
-      } else {
-        // TODO: return in memory REAL_ESTATES_DATA
-      }
+    function getAll(onFulfilled, onRejected) {
+      var deferred = $http({method: "GET", url: "server/realEstates.json"});
+      deferred.success(function(realEstates) {
+        _(realEstates).each(function(realEstate) {
+          realEstate.builtAt = new Date(realEstate.builtAt);
+        });
+        onFulfilled(realEstates);
+      });
+      deferred.error(onRejected);
     }
 
     return {
