@@ -21,6 +21,7 @@ MapSearchApp.services.factory("mapSrv", [
     var markers = {};
 
     return {
+      // maps objects array to markers hash
       toMarkers: function(objects) {
         markers = {};
         _(objects).each(function(obj, i) {
@@ -35,9 +36,11 @@ MapSearchApp.services.factory("mapSrv", [
         }, this);
         return markers;
       },
+      // returns center object
       center: function() {
         return DEFAULT_CENTER;
       },
+      // highlights marker by passed object
       highlightMarker: function(object) {
         if (selectedMarker)
           selectedMarker.icon = DEFAULT_ICON;
@@ -46,6 +49,7 @@ MapSearchApp.services.factory("mapSrv", [
         });
         selectedMarker.icon = HIGHLIGHTED_ICON;
       },
+      // finds object by marker name
       findObject: function(markerName) {
         return markers[markerName].object;
       }
