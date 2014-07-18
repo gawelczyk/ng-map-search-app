@@ -12,7 +12,7 @@ MapSearchApp.controllers.controller("ListCtrl", [
         $scope.highlight = function (el) {
             if ($scope.selected && $scope.selected !== el) {
                 $scope.selected.highlighted = '';
-            }else{
+            } else {
                 $scope.selected = null;
             }
 
@@ -24,5 +24,14 @@ MapSearchApp.controllers.controller("ListCtrl", [
             }
             console.log('highlight', arguments)
         };
+
+        $scope.isReverseSort = false;
+        $scope.sort = function (byColumn) {
+            if ($scope.sortByColumn == byColumn)
+                $scope.isReverseSort = !$scope.isReverseSort;
+            $scope.sortByColumn = byColumn;
+            console.log('sort', byColumn, arguments);
+        };
     }
+    
 ]);

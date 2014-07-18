@@ -64,21 +64,22 @@
                 <thead class="list-header">
                 <tr>
                     <td>
-                        <a>Street</a>
+                        <a ng-click="sort('street')">Street</a>
                     </td>
                     <td>
-                        <a>Longitude</a>
+                        <a ng-click="sort('lng')">Longitude</a>
                     </td>
                     <td>
-                        <a>Latitude</a>
+                        <a ng-click="sort('lat')">Latitude</a>
                     </td>
                     <td>
-                        <a>Type code</a>
+                        <a ng-click="sort('type')">Type code</a>
                     </td>
                 </tr>
                 </thead>
                 <tbody class="items-container">
-                <tr class="list-item {{re.highlighted}}" ng-repeat="re in realEstates" ng-click="highlight(re)" >
+                <tr class="list-item {{re.highlighted}}"
+                    ng-repeat="re in realEstates | orderBy:sortByColumn:isReverseSort" ng-click="highlight(re)">
                     <td>{{re.street}}</td>
                     <td>{{re.lng}} (round 2)</td>
                     <td>{{re.lat}}(round 2)</td>
