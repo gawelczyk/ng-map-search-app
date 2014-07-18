@@ -1,89 +1,93 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <link rel="stylesheet" href="css/app.css"/>
-  <link rel="stylesheet" href="css/leaflet.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="css/leaflet.css"/>
 
-  <!-- vendor scripts -->
-  <script src="vendor/underscore.js"></script>
-  <script src="vendor/jquery.js"></script>
-  <script src="vendor/angular.js"></script>
-  <script src="vendor/angular-translate.js"></script>
-  <script src="vendor/leaflet.js"></script>
-  <script src="vendor/angular-leaflet-directive.js"></script>
+    <!-- vendor scripts -->
+    <script src="vendor/underscore.js"></script>
+    <script src="vendor/jquery.js"></script>
+    <script src="vendor/angular.js"></script>
+    <script src="vendor/angular-translate.js"></script>
+    <script src="vendor/leaflet.js"></script>
+    <script src="vendor/angular-leaflet-directive.js"></script>
 
-  <!-- app scripts -->
-  <script src="js/i18n/init.js"></script>
-  <script src="js/i18n/en.js"></script>
-  <script src="js/i18n/pl.js"></script>
-  <script src="js/utils.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/filters/realEstateType.js"></script>
-  <script src="js/services/pubSubSrv.js"></script>
-  <script src="js/services/mixinSrv.js"></script>
-  <script src="js/services/mapSrv.js"></script>
-  <script src="js/repositories/realEstateRepository.js"></script>
-  <script src="js/models/Evented.js"></script>
-  <script src="js/controllers/PageCtrl.js"></script>
-  <script src="js/controllers/DetailsCtrl.js"></script>
-  <script src="js/controllers/MapCtrl.js"></script>
-  <script src="js/controllers/ListCtrl.js"></script>
-  <script src="js/bootstrap.js"></script>
+    <!-- app scripts -->
+    <script src="js/i18n/init.js"></script>
+    <script src="js/i18n/en.js"></script>
+    <script src="js/i18n/pl.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/filters/realEstateType.js"></script>
+    <script src="js/services/pubSubSrv.js"></script>
+    <script src="js/services/mixinSrv.js"></script>
+    <script src="js/services/mapSrv.js"></script>
+    <script src="js/repositories/realEstateRepository.js"></script>
+    <script src="js/models/Evented.js"></script>
+    <script src="js/controllers/PageCtrl.js"></script>
+    <script src="js/controllers/DetailsCtrl.js"></script>
+    <script src="js/controllers/MapCtrl.js"></script>
+    <script src="js/controllers/ListCtrl.js"></script>
+    <script src="js/bootstrap.js"></script>
 </head>
 <body>
 
 
 <div ng-controller="PageCtrl" class="main">
-  <div>
-    <button ng-click="toggleLanguage()">{{'toggleLanguage' | translate}}</button>
-  </div>
-  <div class="top-container clearfix">
-    <div ng-controller="MapCtrl" class="map-container">
-      <leaflet center="centerPoint" markers="realEstateMarkers" class="map"></leaflet>
+    <div>
+        <button ng-click="toggleLanguage()">{{'toggleLanguage' | translate}}</button>
+    </div>
+    <div class="top-container clearfix">
+        <div ng-controller="MapCtrl" class="map-container">
+            <leaflet center="centerPoint" markers="realEstateMarkers" class="map"></leaflet>
+        </div>
+
+        <div ng-controller="DetailsCtrl" class="details-container">
+            <div class="details">
+                <p>Street: TODO</p>
+
+                <p>Latitude: TODO (round 4)</p>
+
+                <p>Longitude: TODO (round 4)</p>
+
+                <p>Price: TODO (currency PLN)</p>
+
+                <p>Type: TODO (full type name)</p>
+            </div>
+        </div>
     </div>
 
-    <div class="details-container">
-      <div class="details">
-        <p>Street: TODO</p>
-        <p>Latitude: TODO (round 4)</p>
-        <p>Longitude: TODO (round 4)</p>
-        <p>Price: TODO (currency PLN)</p>
-        <p>Type: TODO (full type name)</p>
-      </div>
+    <div ng-controller="ListCtrl" class="list-container">
+        <div class="list">
+            <table>
+                <thead class="list-header">
+                <tr>
+                    <td>
+                        <a>Street</a>
+                    </td>
+                    <td>
+                        <a>Longitude</a>
+                    </td>
+                    <td>
+                        <a>Latitude</a>
+                    </td>
+                    <td>
+                        <a>Type code</a>
+                    </td>
+                </tr>
+                </thead>
+                <tbody class="items-container">
+                <tr class="list-item {{re.highlighted}}" ng-repeat="re in realEstates" ng-click="highlight(re)" >
+                    <td>{{re.street}}</td>
+                    <td>{{re.lng}} (round 2)</td>
+                    <td>{{re.lat}}(round 2)</td>
+                    <td>{{re.type}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
-
-  <div class="list-container">
-    <div class="list">
-      <table>
-        <thead class="list-header">
-        <tr>
-          <td>
-            <a>Street</a>
-          </td>
-          <td>
-            <a>Longitude</a>
-          </td>
-          <td>
-            <a>Latitude</a>
-          </td>
-          <td>
-            <a>Type code</a>
-          </td>
-        </tr>
-        </thead>
-        <tbody class="items-container">
-        <tr class="list-item">
-          <td>street TODO</td>
-          <td>lng TODO (round 2)</td>
-          <td>lat TODO (round 2)</td>
-          <td>type code TODO</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
 </div>
 
 

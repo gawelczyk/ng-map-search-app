@@ -7,10 +7,14 @@ MapSearchApp.controllers.controller("MapCtrl", [
 
     // TODO
 
+
     $scope.$on('leafletDirectiveMarker.click', function(event, data) {
       var selectedRealEstate = mapSrv.findObject(data["markerName"]);
 
       //TODO
+
+
+
     })
   }
 ]);
